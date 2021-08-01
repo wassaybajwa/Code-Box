@@ -1,23 +1,30 @@
-import React from "react";
-import Login from "./Login";
-import Form from "./Form"
-
-// var isLoggedIn = true;
-// const currentTime = new Date().getHours();
-
-var userIsRegistered = true;
-
-// console.log(currentTime);
+import React, { useState } from "react";
 
 function App() {
-  return (
-    <div className="container">
-        {/* // isLoggedIn ? <h1>Hello</h1> : <Login /> */}
-        {/* currentTime > 1 && <h1>Why are you still working??</h1> */}
-        <Form isRegistered={userIsRegistered}/>
+    const [count, setCount] = useState(0);
+
+    const [red, green, blue] = [9, 132, 227]
     
-    </div>
-  );
+    function increase() {
+      //count++
+      setCount(count + 1)
+    } 
+    function decrease() {
+        //count++
+        setCount(count - 1)
+      } 
+    
+    return (
+      <div className="container">
+        {/* <h1>{state[0]}</h1>  */}
+        <h1>{count}</h1> 
+
+        <button onClick={increase}>+</button>
+        <button onClick={decrease}>-</button>
+      </div>
+      
+    );
+    
 }
 
 export default App;
